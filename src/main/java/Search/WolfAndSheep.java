@@ -7,6 +7,10 @@ import java.util.StringTokenizer;
 
 // 다시 풀기
 public class WolfAndSheep {
+
+    private static int[] dx = {-1, 1,0, 0};
+    private static int[] dy = {0, 0, -1, 1};
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -24,30 +28,18 @@ public class WolfAndSheep {
         for(int i=0;i<R;i++){
             for(int j=0;j<C;j++){
                 if(pasture[i][j].equals("W")){
-                    if(i!=0&&(i+1)<R){
-                        if(j!=0&&(j+1)<C){
-                            if(pasture[i-1][j].equals("S")){
+                    for(int dir = 0; dir < 4; dir++){
+                        int nx = i + dx[dir];
+                        int ny = j + dy[dir];
+
+                        // nx, ny 값이 목장 안쪽 일 때
+                        if(0 <= nx && nx < R && 0 <= ny && ny < C){
+                            if(pasture[nx][ny].equals("."))
+                                pasture[nx][ny] = "D";
+                            else if (pasture[nx][ny].equals("S")){
                                 System.out.println(0);
                                 return;
-                            } else if(pasture[i-1][j].equals("."))
-                                pasture[i-1][j] = "D";
-                            if(pasture[i+1][j].equals("S")){
-                                System.out.println(0);
-                                return;
-                            } else if(pasture[i+1][j].equals("."))
-                                pasture[i+1][j] = "D";
-                            if(pasture[i][j-1].equals("S")){
-                                System.out.println(0);
-                                return;
-                            } else if(pasture[i][j-1].equals("."))
-                                pasture[i][j-1] = "D";
-                            if(pasture[i][j+1].equals("S")){
-                                System.out.println(0);
-                                return;
-                            } else if(pasture[i][j+1].equals("."))
-                                pasture[i][j+1] = "D";
-                        } else if(j==0){
-                            //...
+                            }
                         }
                     }
                 }
