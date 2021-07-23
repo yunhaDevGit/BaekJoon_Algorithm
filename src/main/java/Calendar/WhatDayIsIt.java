@@ -9,7 +9,7 @@ public class WhatDayIsIt {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        String day[] ={"MON","TUE","WED","THU","FRI","SAT","SUN"};
+        String day[] ={"SUN","MON","TUE","WED","THU","FRI","SAT"};
         int dates[] = {31,28,31,30,31,30,31,31,30,31,30,31};
         int count = 0;
         int month = Integer.parseInt(st.nextToken());
@@ -20,10 +20,7 @@ public class WhatDayIsIt {
         }
         count+=date;
 
-        if(count%7!=0)
-            System.out.println(day[count%7-1]);
-        else
-            System.out.println("SUN");
+         System.out.println(day[count%7]);
 
     }
 }
