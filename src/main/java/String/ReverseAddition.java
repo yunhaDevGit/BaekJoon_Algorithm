@@ -35,6 +35,6 @@ public class ReverseAddition {
             sb3.append(results[i-1]);
         }
 
-        System.out.println(sb3);
+        System.out.println(Integer.parseInt(String.valueOf(sb3)));
     }
 }
