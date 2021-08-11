@@ -45,7 +45,7 @@ public class RotationQueue {
         }
 
         if(index>numArrayLength/2){
-            for(int i=numArrayLength-1;i>index;i--){
+            for(int i=numArrayLength-1;i>=index;i--){
                 count++;
                 num = numArray.get(numArrayLength-1);
                 numArray.remove(numArrayLength-1);
